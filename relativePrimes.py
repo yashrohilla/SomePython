@@ -1,6 +1,16 @@
 #!/bin/env/python3
 import math
 
+def isPrime(n):
+    for a in range(3,100):
+        if relativePrime(a,n) == True:
+            if a**(n-1)%n != 1:
+                return False
+    return True
+
+
+
+
 def relativePrime(a,b):
     factorsA = []
     factorsB = []
@@ -11,9 +21,9 @@ def relativePrime(a,b):
         if b%i == 0:
             factorsB.append(i)
     listFactor = list(set(factorsA).intersection(factorsB))
-   # print listFactor
+    #print(listFactor)
     if listFactor[0] == 1 and len(listFactor) == 1:
-        print(a)
+        return True
 
 def totient(n):
     count = 0
@@ -28,6 +38,9 @@ def totient(n):
 if __name__ == "__main__":
     #n = input('Enter number to get totient: ')
     #print totient(n)
-    for i in range(1, 8):
-        relativePrime(i, 7)
+    #for i in range(1, 8):
+    #    relativePrime(i, 7)
 
+    #print(relativePrime(23,14))
+    #print(isPrime(4547337172376300111955330758342147474062293202868155909489))
+    print([x for x in range(901, 1000) if isPrime(x)])
