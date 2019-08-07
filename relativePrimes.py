@@ -1,5 +1,6 @@
 #!/bin/env/python3
 import math
+from timeit import Timer
 
 def isPrime(n):
     for a in range(3,100):
@@ -43,4 +44,6 @@ if __name__ == "__main__":
 
     #print(relativePrime(23,14))
     #print(isPrime(4547337172376300111955330758342147474062293202868155909489))
-    print([x for x in range(901, 1000) if isPrime(x)])
+    #print(timeit.timeit('[x for x in range(1, 1000) if isPrime(x)]', number=10000))
+   #print(isPrime(27644437))
+   print([x for x in range(1, 200000) if isPrime(x)])
